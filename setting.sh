@@ -7,6 +7,10 @@ sudo apt upgrade -y
 #初期導入コマンド
 sudo apt install -y curl vim nano openssh-server git 
 
+#git初期設定
+git config --global user.name "pugsatoshi"
+git config --global user.email "satoshi.ito.dev@gmail.com"
+
 #日本語環境install
 #echo "日本語環境install"
 #sudo apt -y install language-pack-ja-base language-pack-ja ibus-mozc
