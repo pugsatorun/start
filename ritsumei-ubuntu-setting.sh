@@ -28,3 +28,8 @@ cp ~/.vim/colors/molokai/colors/molokai.vim ~/.vim/colors
 
 #任意のファイルのコピー
 cp .vimrc ~/
+
+#立命館
+echo NTP = ntp.ritsumei.ac.jp | sudo tee -a /etc/systemd/timesyncd.conf
+#標準出力なくす場合
+echo NTP = ntp.ritsumei.ac.jp | sudo tee -a /etc/systemd/timesyncd.conf > /dev/null
