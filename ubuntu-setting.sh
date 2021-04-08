@@ -33,3 +33,6 @@ cp .vimrc ~/
 echo alias rm='rm -i' | sudo tee -a ~/.bashrc
 echo alias mv='mv -i' | sudo tee -a ~/.bashrc
 echo alias cp='cp -i' | sudo tee -a ~/.bashrc
+echo alias rm='rm -i' | sudo tee -a /etc/profile
+echo alias mv='mv -i' | sudo tee -a /etc/profile
+echo alias cp='cp -i' | sudo tee -a /etc/profile
