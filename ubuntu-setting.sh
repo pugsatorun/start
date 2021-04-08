@@ -28,3 +28,8 @@ cp ~/.vim/colors/molokai/colors/molokai.vim ~/.vim/colors
 
 #任意のファイルのコピー
 cp .vimrc ~/
+
+#人を信用するな
+echo alias rm='rm -i' | sudo tee -a ~/.bashrc
+echo alias mv='mv -i' | sudo tee -a ~/.bashrc
+echo alias cp='cp -i' | sudo tee -a ~/.bashrc

@@ -33,3 +33,8 @@ cp .vimrc ~/
 echo NTP = ntp.ritsumei.ac.jp | sudo tee -a /etc/systemd/timesyncd.conf
 #標準出力なくす場合
 #echo NTP = ntp.ritsumei.ac.jp | sudo tee -a /etc/systemd/timesyncd.conf > /dev/null
+
+#人を信用するな
+echo alias rm='rm -i' | sudo tee -a ~/.bashrc
+echo alias mv='mv -i' | sudo tee -a ~/.bashrc
+echo alias cp='cp -i' | sudo tee -a ~/.bashrc
