@@ -8,8 +8,8 @@ sudo apt upgrade -y
 sudo apt install -y curl vim nano openssh-server git 
 
 #git初期設定
-git config --global user.name "pugsatoshi"
-git config --global user.email "satoshi.ito.dev@gmail.com"
+git config --global user.name "name"
+git config --global user.email "sample@mail"
 
 #日本語環境install
 #echo "日本語環境install"
@@ -19,8 +19,8 @@ git config --global user.email "satoshi.ito.dev@gmail.com"
 #タイムゾーンを日本に変更
 #echo "タイムゾーンの設定"
 #ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/locltime
-echo "タイムゾーンの設定"
-sudo timedatectl set-timezone Asia/Tokyo
+#echo "タイムゾーンの設定"
+#sudo timedatectl set-timezone Asia/Tokyo
 
 #vim環境構築
 mkdir ~/.vim
