@@ -19,6 +19,8 @@ git config --global user.email "satoshi.ito.dev@gmail.com"
 #タイムゾーンを日本に変更
 #echo "タイムゾーンの設定"
 #ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/locltime
+echo "タイムゾーンの設定"
+sudo timedatectl set-timezone Asia/Tokyo
 
 #vim環境構築
 mkdir ~/.vim
