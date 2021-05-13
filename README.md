@@ -9,3 +9,4 @@ $ ./ubuntu-setting.sh
 setting.shを実行することで環境構築を行います  
 
 立命館用のシェルスクリプト開発中
+開発はubuntu
