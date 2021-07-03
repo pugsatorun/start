@@ -39,6 +39,20 @@ echo "alias rm='rm -i'" | sudo tee -a /etc/profile
 echo "alias mv='mv -i'" | sudo tee -a /etc/profile
 echo "alias cp='cp -i'" | sudo tee -a /etc/profile
 
+# GPUを使う場合
+#動いてるGPUドライバの確認
+lsmod | grep nouveau
+#抹殺するためのコマンド
+echo '' >> /etc/modprobe.d/blacklist.conf
+echo 'blacklist nouveau' >> /etc/modprobe.d/blacklist.conf
+echo 'options nouveau modeset=0' >> /etc/modprobe.d/blacklist.conf
+sudo update-initramfs -u
+# sudo reboot
+#いらないかも
+sudo add-apt-repository ppa:graphics-drivers/ppa
+ubuntu-drivers devices
+sudo ubuntu-drivers autoinstall
+
 #Dockerインストール
 sudo apt-get update
 sudo apt-get install -y \
