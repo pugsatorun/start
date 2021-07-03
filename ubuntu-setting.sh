@@ -9,7 +9,7 @@ sudo apt install -y curl vim nano openssh-server git
 
 #git初期設定
 git config --global user.name "name"
-git config --global user.email "sample@mail"
+git config --global user.email "mail@com"
 
 #日本語環境install
 #echo "日本語環境install"
@@ -32,9 +32,9 @@ cp ~/.vim/colors/molokai/colors/molokai.vim ~/.vim/colors
 cp .vimrc ~/
 
 #人を信用するな
-echo alias rm='rm -i' | sudo tee -a ~/.bashrc
-echo alias mv='mv -i' | sudo tee -a ~/.bashrc
-echo alias cp='cp -i' | sudo tee -a ~/.bashrc
-echo alias rm='rm -i' | sudo tee -a /etc/profile
-echo alias mv='mv -i' | sudo tee -a /etc/profile
-echo alias cp='cp -i' | sudo tee -a /etc/profile
+echo "alias rm='rm -i'" | sudo tee -a ~/.bashrc
+echo "alias mv='mv -i'" | sudo tee -a ~/.bashrc
+echo "alias cp='cp -i'" | sudo tee -a ~/.bashrc
+echo "alias rm='rm -i'" | sudo tee -a /etc/profile
+echo "alias mv='mv -i'" | sudo tee -a /etc/profile
+echo "alias cp='cp -i'" | sudo tee -a /etc/profile
