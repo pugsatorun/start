@@ -52,6 +52,31 @@ sudo update-initramfs -u
 sudo add-apt-repository ppa:graphics-drivers/ppa
 ubuntu-drivers devices
 sudo ubuntu-drivers autoinstall
+#CUDAのインストール
+#鍵を追加(ubuntu 20.04)
+sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/7fa2af80.pub
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+sudo apt-get update
+sudo apt-get -y install cuda
+sudo apt install -y \
+  freeglut3 \
+  freeglut3-dev \
+  libegl-dev \
+  libfreeimage-dev \
+  libfreeimage3 \
+  libgles2-mesa-dev \
+  libglfw3-dev \
+  libglu1-mesa \
+  libglu1-mesa-dev \
+  libxi-dev \
+  libxmu-dev \
+  mesa-common-dev
+# PATHの追加
+echo 'export PATH="/usr/local/cuda/bin:$PATH"' >> ~/.bashrc
+echo 'export LD_LIBRARY_PATH="/usr/local/cuda/lib64:$LD_LIBRARY_PATH"' >> ~/.bashrc
+# cuDNNの導入
 
 #Dockerインストール
 sudo apt-get update
