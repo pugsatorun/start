@@ -88,3 +88,48 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 echo deb https://apt.kubernetes.io/ kubernetes-xenial main | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt update
 sudo apt install -y kubeadm kubelet kubectl
+# バージョンの確認
+kubeadm version -o json
+kubectl version -o json
+kubelet --version
+
+# IPv6を停止
+echo 'net.ipv6.conf.all.disable_ipv6 = 1' | sudo tee -a /etc/sysctl.conf
+echo 'net.ipv6.conf.default.disable_ipv6 = 1' | sudo tee -a /etc/sysctl.conf
+echo 'net.ipv6.conf.eth0.disable_ipv6 = 1' | sudo tee -a /etc/sysctl.conf
+echo 'net.ipv6.conf.lo.disable_ipv6 = 1' | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+
+# 要変更　Host名を変更自身の環境によって変更する必要あり
+# Masterの場合
+#sudo hostnamectl set-hostname Kubernates-master
+# Workerの場合
+#sudo hostnamectl set-hostname Kubernates-worker01
+
+# 要変更 Hostsファイルの編集自身の構成により変更が必要
+echo '192.168.11.100 master Kubernates-master' | sudo tee -a /etc/hosts
+echo '192.168.11.101 worker01 Kubernates-worker01' | sudo tee -a /etc/hosts
+echo '192.168.11.102 worker02 Kubernates-worker02' | sudo tee -a /etc/hosts
+echo '192.168.11.103 worker03 Kubernates-worker03' | sudo tee -a /etc/hosts
+echo '192.168.11.104 worker04 Kubernates-worker04' | sudo tee -a /etc/hosts
+echo '192.168.11.105 worker05 Kubernates-worker05' | sudo tee -a /etc/hosts
+echo '192.168.11.106 worker06 Kubernates-worker06' | sudo tee -a /etc/hosts
+echo '192.168.11.107 worker07 Kubernates-worker07' | sudo tee -a /etc/hosts
+
+# 要変更アカウント追加
+#sudo adduser User
+#sudo gpasswd -a User sudo
+
+# デフォルトアカウントログイン停止
+#sudo usermod -s /usr/sbin/nologin ubuntu
+
+# iptablesがnftablesバックエンドを使用しないようにする
+sudo apt-get -y install iptables arptables ebtables
+sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
+sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+sudo update-alternatives --set arptables /usr/sbin/arptables-legacy
+sudo update-alternatives --set ebtables /usr/sbin/ebtables-legacy
+
+# cgruop でmemoryの有効化
+cat /proc/cgroups | grep memory
+echo 'cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory' | sudo tee /boot/firmware/cmdline.txt
