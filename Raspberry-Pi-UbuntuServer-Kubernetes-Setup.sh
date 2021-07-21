@@ -8,8 +8,8 @@ sudo apt upgrade -y
 sudo apt install -y curl vim nano openssh-server git build-essential
 
 #git初期設定
-git config --global user.name "pugsatoshi"
-git config --global user.email "satoshi.ito.dev@gmail.com"
+git config --global user.name "name"
+git config --global user.email "example@mail.com"
 
 #日本語環境install
 echo "日本語環境install"
