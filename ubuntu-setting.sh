@@ -7,6 +7,9 @@ sudo apt upgrade -y
 #初期導入コマンド
 sudo apt install -y curl vim nano openssh-server git build-essential
 
+#ディレクトリの英語化
+LANG=C xdg-user-dirs-gtk-update
+
 #git初期設定
 git config --global user.name "name"
 git config --global user.email "mail@com"
