@@ -10,6 +10,15 @@ sudo apt install -y curl vim nano openssh-server git build-essential
 #ディレクトリの英語化
 LANG=C xdg-user-dirs-gtk-update
 
+#CAPSキーをctrlにする
+echo "setxkbmap -model jp106 -layout jp -option ctrl:nocaps" | sudo tee -a ~/.bashrc
+
+#openコマンド(Mac信者のため)
+echo "open='xdg-open'"
+
+#PATHを短くする
+echo "export PS1='\[\033[32m\]\u:\[\033[34m\]\w\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '" | sudo tee -a ~/.bashrc
+
 #git初期設定
 git config --global user.name "name"
 git config --global user.email "mail@com"
