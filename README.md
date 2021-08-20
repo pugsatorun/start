@@ -51,7 +51,7 @@ $ imwheel -k
 $ imwheel -q
 ```
 
-```setting:.imwheelrc
+```python:.imwheelrc
 ".*"
 None,      Up,   Button4, 2
 None,      Down, Button5, 2
