@@ -37,3 +37,17 @@ $ sudo update-alternatives --config x-terminal-emulator
 # Hyperをデフォルトの端末にする
 $ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /opt/Hyper/hyper 50
 ```
+
+マウスホイールの設定
+
+```
+#下記でボタン4と5だけに作用する
+#設定ファイルは[~/.imwheel]に記述
+$ imwheel -b "4 5"
+```
+
+```.imwheel
+".*"
+None,      Up,   Button4, 2
+None,      Down, Button5, 2
+```
