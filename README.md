@@ -28,3 +28,12 @@ cpuの確認
 $ cat /proc/cpuinfo
 ```
 
+端末の設定
+
+```
+# デフォルト端末を変更する
+$ sudo update-alternatives --config x-terminal-emulator
+
+# Hyperをデフォルトの端末にする
+$ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /opt/Hyper/hyper 50
+```
