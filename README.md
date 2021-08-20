@@ -43,10 +43,15 @@ $ sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emu
 ```
 #下記でボタン4と5だけに作用する
 #設定ファイルは[~/.imwheel]に記述
+# 起動
 $ imwheel -b "4 5"
+# 再起動
+$ imwheel -k
+# 停止
+$ imwheel -q
 ```
 
-```.imwheel
+```.imwheelrc
 ".*"
 None,      Up,   Button4, 2
 None,      Down, Button5, 2
