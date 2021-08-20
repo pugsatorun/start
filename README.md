@@ -50,8 +50,9 @@ $ imwheel -k
 # 停止
 $ imwheel -q
 ```
+ファイル名は[.imwheelrc]で以下を記述することで設定できる
 
-```ruby:.imwheelrc
+```
 ".*"
 None,      Up,   Button4, 2
 None,      Down, Button5, 2
