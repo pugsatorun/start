@@ -57,3 +57,19 @@ $ imwheel -q
 None,      Up,   Button4, 2
 None,      Down, Button5, 2
 ```
+
+# ntpサーバーの設定と再起動
+
+設定ファイルは/etc/systemd/timesyncd.confにある
+上記ファイル内の
+
+```diff
+- #NTP=
++ NTP=[任意のサーバー]
+```
+
+設定後以下を実行することでntpサーバーをrestartできます
+
+```
+$ sudo systemctl restart systemd-timesyncd.service
+```
