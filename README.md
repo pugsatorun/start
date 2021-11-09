@@ -73,3 +73,37 @@ None,      Down, Button5, 2
 ```
 $ sudo systemctl restart systemd-timesyncd.service
 ```
+
+# デフォルトの音声出力を変更する方法
+
+はじめに接続されている機器を確認
+
+```
+# 詳しい機器の情報
+$ pactl list short sources
+# ひとまず何台あるか確認するのは
+$ cat /proc/asound/modules
+```
+
+次にデフォルトの音声出力先を変更する
+vimやnanoなどで以下のファイルを編集。以下はvimを使用した場合
+$ vim /etc/pulse/default.pa
+
+以下の文言を修正
+
+```diff
+…
+### Should be after module-*-restore but before module-*-detect
+- load-module module-switch-on-port-available モジュールが検出できなければ復元しない…っぽい、これを止めないと、、、
+
+### Use hot-plugged devices like Bluetooth or USB automatically (LP: #1702794)
+- .ifexists module-switch-on-connect.so
+- load-module module-switch-on-connect BluetoothとかUSBがつながったら自動で切り替えるのを止める。
+- .endif
+…
+### Make some devices default
+- set-default-sink output
+- set-default-source input
++ set-default-source <デバイス名>.monitor
+```
+
