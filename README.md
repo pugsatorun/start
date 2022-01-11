@@ -107,3 +107,9 @@ $ vim /etc/pulse/default.pa
 + set-default-source <デバイス名>.monitor
 ```
 
+# WSLの時刻ズレ問題
+解決は以下のコマンドを実行
+
+```diff
+$ sudo hwclock --hctosys
+```
