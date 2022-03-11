@@ -113,3 +113,22 @@ $ vim /etc/pulse/default.pa
 ```diff
 $ sudo hwclock --hctosys
 ```
+
+# IPアドレス固定方法
+以下のファイルに記入
+/etc/netplan/00-installer-config.yaml
+
+```diff
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    wifi???:
+      addresses:
+      - 192.168.11.xxx/24
+      gateway4: 192.168.11.xxx
+      nameservers:
+        addresses:
+        - 192.168.11.xxx
+        search: []
+  version: 2
+```
