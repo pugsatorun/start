@@ -91,3 +91,7 @@ pyenv -v
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bashrc
 source ~/.bashrc
+
+
+# koreyoka
+# https://denishartl.com/installing-cuda-11-3-cudnn-tensorflow-2-4-jupyter-on-a-headless-ubuntu-20-04-server/
